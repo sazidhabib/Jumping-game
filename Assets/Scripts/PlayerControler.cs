@@ -14,7 +14,12 @@ public class PlayerControler : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crushSound;
 
-    public float jumpForce = 10;
+    public float jumpForce = 700.0f;
+    public float DoubleJumpForce = 400.0f;
+
+    private bool dubboleJumpUsed = true;
+    public bool dubboleSpeed = false;
+
     public float gravityForce;
     public bool isOnGround = true;
     public bool gameOver = false;
@@ -34,10 +39,29 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround && gameOver != true)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            dubboleJumpUsed = false;
             isOnGround = false;
             playerAnimation.SetTrigger("Jump_trig");
             DritEffect.Stop();
+            PlayerAudio.PlayOneShot(jumpSound, 1.0f);    
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround && !dubboleJumpUsed)
+        {
+            dubboleJumpUsed = true;
+            playerRb.AddForce(Vector3.up * DoubleJumpForce, ForceMode.Impulse);
+            playerAnimation.Play("Running_Jump",3,0f);
             PlayerAudio.PlayOneShot(jumpSound, 1.0f);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            dubboleSpeed = true;
+            playerAnimation.SetFloat("Speed_Multiplier", 2.0f);
+        }
+        else if (dubboleSpeed)
+        {
+            dubboleSpeed = false;
+            playerAnimation.SetFloat("Speed_Multiplier", 1.0f);
         }
     }
 
