@@ -27,6 +27,9 @@ To make this game i use here C# programming language & use Visual Studio editor.
 
 ## C#
 So, C# like other general-purpose programming languages, C# can be used to create a number of different programs and applications: mobile apps, desktop apps, cloud-based services, websites, enterprise software and games. Lots and lots of games.
+![Screenshot (10)](https://github.com/sazidhabib/Jumping-game/assets/68610034/5220ed08-a56c-423c-8c92-4ca9ed5acd01)
+![Screenshot (9)](https://github.com/sazidhabib/Jumping-game/assets/68610034/cb85e4d4-39b7-45c5-9437-0f77d6478243)
+![Screenshot (8)](https://github.com/sazidhabib/Jumping-game/assets/68610034/75fe7964-f09a-44bf-871e-7b4336ea3feb)
 ##
 Game Play video.
 
